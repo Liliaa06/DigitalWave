@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetWave Bakery - Kelezatan Spesial Setiap Hari</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #4a4a4a;
+            background-color: #fffaf6;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #d97706;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: #555;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d97706;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+
+        .btn-main {
+            background-color: #d97706;
+            color: #ffffff;
+            padding: 0.8rem 1.8rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-main:hover {
+            background-color: #b45309;
+            transform: translateY(-2px);
+        }
+
+        /* CONTAINER GENERAL */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #78350f;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: #d97706;
+            display: block;
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* ABOUT SECTION */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-info p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .info-list li {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* PRODUCTS SECTION */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-details {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #d97706;
+            margin-bottom: 1rem;
+        }
+
+        .btn-wa {
+            background-color: #25d366;
+            color: #ffffff;
+            text-align: center;
+            padding: 0.6rem;
+            border-radius: 6px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .btn-wa:hover {
+            background-color: #1eb954;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #78350f;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">SweetWave Bakery</div>
+            <ul class="nav-links">
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#lokasi">Lokasi & Jam Buka</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Kelembutan & Kelezatan Sejati</h1>
+        <p>Kue kering dan basah handmade bermutu tinggi, dibuat segar setiap hari menggunakan bahan alami pilihan.</p>
+        <a href="#produk" class="btn-main">Lihat Menu</a>
+    </section>
+
+    <!-- TENTANG TOKO & INFORMASI UMUM -->
+    <section id="tentang" class="container">
+        <h2 class="section-title">Profil Toko</h2>
+        <div class="about-grid">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Interior SweetWave Bakery">
+            </div>
+            <div class="about-info">
+                <h3>Selamat Datang di SweetWave Bakery</h3>
+                <p>SweetWave Bakery didirikan dengan misi menghadirkan kebahagiaan lewat setiap gigitan kue. Kami mengutamakan kualitas rasa, kesegaran bahan, dan kebersihan dalam setiap proses pembuatan.</p>
+                <ul class="info-list">
+                    <li>📍 <strong>Alamat:</strong> Jl. Mawar Indah No. 45, Magelang, Jawa Tengah</li>
+                    <li>🕒 <strong>Jam Operasional:</strong> Senin - Minggu (08.00 - 20.00 WIB)</li>
+                    <li>📞 <strong>Kontak Whatsapp:</strong> +62 812-3456-7890</li>
+                    <li>✨ <strong>Fasilitas:</strong> Dine-in, Takeaway, & Pengiriman Area Magelang</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUK KUE -->
+    <section id="produk" class="container" style="background-color: #fff2e6; border-radius: 16px;">
+        <h2 class="section-title">Produk Terfavorit</h2>
+        <div class="product-grid">
+
+            <!-- Produk 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Chocolate Fudge Cake" class="product-img">
+                <div class="product-details">
+                    <h3 class="product-title">Chocolate Fudge Cake</h3>
+                    <p class="product-desc">Kue cokelat pekat dengan lapisan cream cokelat lumer yang lembut di mulut.</p>
+                    <div class="product-price">Rp 180.000</div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20SweetWave%20Bakery,%20saya%20ingin%20pesan%20Chocolate%20Fudge%20Cake" target="_blank" class="btn-wa">
+                        Pesan via Whatsapp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produk 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80" alt="Strawberry Cheesecake" class="product-img">
+                <div class="product-details">
+                    <h3 class="product-title">Strawberry Cheesecake</h3>
+                    <p class="product-desc">Cheesecake panggang klasik dengan selai strawberry segar buatan sendiri.</p>
+                    <div class="product-price">Rp 210.000</div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20SweetWave%20Bakery,%20saya%20ingin%20pesan%20Strawberry%20Cheesecake" target="_blank" class="btn-wa">
+                        Pesan via Whatsapp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produk 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80" alt="Assorted Cookies Box" class="product-img">
+                <div class="product-details">
+                    <h3 class="product-title">Assorted Cookies Box</h3>
+                    <p class="product-desc">Paket hampers isi 3 toples cookies (Nastar, Kastengel, & Choco Chip).</p>
+                    <div class="product-price">Rp 125.000</div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20SweetWave%20Bakery,%20saya%20ingin%20pesan%20Assorted%20Cookies%20Box" target="_blank" class="btn-wa">
+                        Pesan via Whatsapp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produk 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=600&q=80" alt="Matcha Opera Cake" class="product-img">
+                <div class="product-details">
+                    <h3 class="product-title">Matcha Opera Cake</h3>
+                    <p class="product-desc">Lapisan biskuit teh hijau khas Jepang dipadu krim mentega matcha premium.</p>
+                    <div class="product-price">Rp 195.000</div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20SweetWave%20Bakery,%20saya%20ingin%20pesan%20Matcha%20Opera%20Cake" target="_blank" class="btn-wa">
+                        Pesan via Whatsapp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 SweetWave Bakery. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
